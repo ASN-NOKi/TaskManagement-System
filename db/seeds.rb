@@ -6,7 +6,7 @@ User.create!( name: "Sample User",
               password_confirmation: "password")
               
 60.times do |i| 
-  name = "sample#{i}"
+  name = Faker::Name.name
   email= "sample-#{i}@email.com"
   password = "password"
   User.create!( name: name,
