@@ -7,9 +7,10 @@ ja:
         id: ID
         name: 名前
         email: メールアドレス
-  attributes:
-    id: ID
-    name: 名前
-    email: メールアドレス
-    created_at: 作成日
+        created_at: 作成日
+  # attributes:
+  #   id: ID
+  #   name: 名前
+  #   email: メールアドレス
+  #   created_at: 作成日
         
