@@ -55,6 +55,10 @@ header.navbar {
   background-color: teal;
 }
 
+li .dropdown-header {
+  background-color: rgba(200,200,200,0.5);
+}
+
 #logo {
   float: left;
   margin-right: 10px;

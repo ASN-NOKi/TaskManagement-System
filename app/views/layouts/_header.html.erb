@@ -7,13 +7,16 @@
         <% if logged_in? %>
           <li><%= link_to "利用者一覧", users_path %></li>
           <li><%= link_to "タスク作成", "#" %></li>
-          <li class="dropdown">
+          <li class="nav-item dropdown show">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= current_user.name %><b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <li class="dropdown-header">ユーザー</li>
               <li><%= link_to "プロフィール", current_user %></li>
               <li><%= link_to "設定", '#' %></li>
+              <li class="dropdown-header">タスク</li>
+              <li><%= link_to "タスク一覧", user_tasks_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
             </ul>
