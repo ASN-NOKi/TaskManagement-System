@@ -7,15 +7,15 @@ class TasksController < ApplicationController
   end
   
   def create
-    @task = Task.new
+    @task = Task.new(task_params)
+    @task.user_id = params[:user_id]
+    @task.save
+    redirect_to user_tasks_url(params[:user_id])
   end
 
   def index
     @tasks = Task.where(user_id: params[:user_id])
-    task = @tasks[0]
-    puts "==========="
-    puts task.id
-    puts "==========="    
+       
   end
   
   def show
@@ -31,5 +31,10 @@ class TasksController < ApplicationController
   # def set_user_tasks(user)
   #   @tasks = Task.where(user_id: user.id)
   # end
+  private
+  
+  def task_params
+    params.require(:task).permit(:content, :description, :user_id)
+  end
   
 end
