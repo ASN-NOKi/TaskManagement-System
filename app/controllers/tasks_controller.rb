@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_user, only: [:new, :show, :edit]
+  # before_action :set_user, only: [:new, :show, :edit]
   
   
   def new
@@ -7,11 +7,15 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.where(user_id: params[:user_id])
-    
+    task = @tasks[0]
+    puts "==========="
+    puts task.id
+    puts "==========="    
   end
   
   def show
     @task = Task.find(params[:id])
+    # @task = Task.find(params[:id])
     # @task = Task.find_by
   end
 

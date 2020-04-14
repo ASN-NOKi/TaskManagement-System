@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   
   
-  def set_user
-    @user = User.find(params[:user_id])
-  end
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
   
   
 end
