@@ -9,8 +9,12 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user_id = params[:user_id]
-    @task.save
-    redirect_to user_tasks_url(params[:user_id])
+    if @task.save
+      flash[:success] = "タスクを新規作成しました。"
+      redirect_to user_tasks_url(params[:user_id])
+    else
+      render :new
+    end
   end
 
   def index
