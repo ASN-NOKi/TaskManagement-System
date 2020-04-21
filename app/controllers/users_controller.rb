@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
   
   def tasks_index
-    @user = current_user
+    @user = User.find(params[:id])  # current_user
     @tasks = @user.tasks
   end
   

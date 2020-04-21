@@ -9,28 +9,14 @@
         <p>↓↓初めてのご利用↓↓</p>
           <%= link_to "アカウント作成", signup_path, class:"btn btn-lg btn-success " %>
         <div align="center" class="gest-login">
-          <%= link_to "ゲストログイン(管理権限)", signup_path, class: "btn btn-danger" %>
-          <%= link_to "ゲストログイン(一般権限)Log In", login_path, class: "btn btn-warning" %>
+          <%= link_to "ゲストログイン(管理権限)", "#", class: "btn btn-danger" %>
+          <%= link_to "ゲストログイン(一般権限)", "#", class: "btn btn-warning" %>
         </div>
       </div>
     </div>
     <div class="col-md-4">
       <h1>ログイン</h1>
-      <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
-
-        <%= f.label :email, "メールアドレス", class: "label-login" %>
-        <%= f.email_field :email, class: 'form-control' %>
-  
-        <%= f.label :password, "パスワード", class: "label-login" %>
-        <%= f.password_field :password, class: 'form-control' %>
-        
-        <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
-          <%= f.check_box :remember_me, id: "remember-me" %>
-          <span>ログイン情報を記憶する</span>
-        <% end %>
-  
-        <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-login" %>
-      <% end %>
+      <%= render 'users/form' %>
     </div>
   </div>
 </div>
