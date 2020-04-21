@@ -8,27 +8,36 @@ class TasksController < ApplicationController
   
   def create
     @task = Task.new(task_params)
-    @task.user_id = params[:user_id]
+    @task.user_id = current_user.id
     if @task.save
       flash[:success] = "タスクを新規作成しました。"
-      redirect_to user_tasks_url(params[:user_id])
+      redirect_to user_tasks_url(@task.user_id)
     else
       render :new
     end
   end
 
   def index
-    @tasks = Task.where(user_id: params[:user_id])
-       
+    @user = User.find(params[:user_id])
+    @tasks = @user.tasks
+  #   @tasks = Task.where(user_id: params[:user_id])
+ 
   end
   
   def show
-    @task = Task.find(params[:id])
     # @task = Task.find(params[:id])
-    # @task = Task.find_by
-  end
+    @user = User.find(params[:user_id])
+    # # @tasks = @user.tasks(user_id: params[:user_id])
+    @task = @user.tasks.find(params[:id])
+   
+  end    
 
   def edit
+    @task = Task.find(params[:id])
+  end
+  
+  def update
+    # @task = Task.find
   end
   
   
