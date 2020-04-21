@@ -23,6 +23,15 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
+  def update
+  end
+  
+  def destroy
+  end
+  
   def tasks_index
     @user = current_user
     @tasks = @user.tasks

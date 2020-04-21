@@ -17,12 +17,7 @@ class TasksController < ApplicationController
     end
   end
 
-  def index
-    @user = User.find(params[:user_id])
-    @tasks = @user.tasks
-  #   @tasks = Task.where(user_id: params[:user_id])
- 
-  end
+
   
   def show
     # @task = Task.find(params[:id])
@@ -40,14 +35,16 @@ class TasksController < ApplicationController
     # @task = Task.find
   end
   
-  
-  # def set_user_tasks(user)
-  #   @tasks = Task.where(user_id: user.id)
-  # end
+  def destroy
+  end
+
+
+
+
   private
   
   def task_params
-    params.require(:task).permit(:content, :description, :user_id)
+    params.require(:task).permit(:content, :description)
   end
   
 end
