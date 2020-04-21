@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     end
   end
   
+  def tasks_index
+    @user = current_user
+    @tasks = @user.tasks
+  end
+  
   private
   
     def user_params
