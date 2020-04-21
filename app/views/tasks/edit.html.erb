@@ -1,20 +1,26 @@
 <% provide(:title, "Edit Task") %>
+<% provide(:btn_text, "更新") %>
 
-<div class="container">
+
+<!--<div class="container">-->
   <h1>タスク編集</h1>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <%= form_with(model: @task, url: {controller: 'tasks', action: 'update', id: @task.id }, local: true) do |f| %>
       
-        <%= render 'shared/error_messages', object: @task %>
+      <%= render 'form' %>
+      
+      <%#= link_to "キャンセル", "#" %>
+      <%#= form_with(model: @task, url: {controller: 'tasks', action: 'update', id: @task.id }, local: true) do |f| %>
+      
+        <%#= render 'shared/error_messages', object: @task %>
         
-        <%= f.label :content, class: "label-form" %>
-        <%= f.text_field :content, class: "form-control" %>
-        <%= f.label :description, class: "label-form" %>
-        <%= f.text_area :description, rows: 5, class: "form-control" %>
-        <%= f.submit "更新", class: "btn btn-primary" %>
-        <%= link_to "キャンセル", "#", class: "btn btn-default btn-form" %>
-      <% end %>
+        <%#= f.label :content, class: "label-form" %>
+        <%#= f.text_field :content, class: "form-control" %>
+        <%#= f.label :description, class: "label-form" %>
+        <%#= f.text_area :description, rows: 5, class: "form-control" %>
+        <%#= f.submit "更新", class: "btn btn-primary" %>
+        <%#= link_to "キャンセル", "#", class: "btn btn-default btn-form" %>
+      <%# end %>
       <%#= form_with(model: @task, local: true) do |f| %>
       
         <%#= render 'shared/error_messages', object: @task %>
@@ -33,4 +39,4 @@
   </div>
   
   
-</div>
+<!--</div>-->
