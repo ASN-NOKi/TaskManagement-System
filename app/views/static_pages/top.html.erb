@@ -1,6 +1,6 @@
 <% provide(:title, "Top") %>
 
-<div class="container">
+
   <div class="row">
     <div class="col-md-7">
       <div class="center jumbotron" id="top-main">
@@ -8,10 +8,12 @@
         <p>TaskAppは簡易ToDo管理ツールです。</p>
         <p>↓↓初めてのご利用↓↓</p>
           <%= link_to "アカウント作成", signup_path, class:"btn btn-lg btn-success " %>
-        <div align="center" class="gest-login">
+        <% unless logged_in? %>
+        <div class="gest-login">
           <%= link_to "ゲストログイン(管理権限)", "#", class: "btn btn-danger" %>
           <%= link_to "ゲストログイン(一般権限)", "#", class: "btn btn-warning" %>
         </div>
+        <% end %>
       </div>
     </div>
     <div class="col-md-4">
@@ -19,5 +21,5 @@
       <%= render 'sessions/form' %>
     </div>
   </div>
-</div>
+
 
