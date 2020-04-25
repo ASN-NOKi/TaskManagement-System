@@ -55,12 +55,9 @@ p {
 }
 
 /* ヘッダー */
-header.navbar {
+.navbar {
   background-color: teal;
-}
 
-li .dropdown-header {
-  background-color: rgba(200,200,200,0.5);
 }
 
 #logo {
@@ -73,13 +70,23 @@ li .dropdown-header {
   padding-top: 9px;
   font-weight: bold;
   font-style: oblique;
+  &:hover {
+    color: silver;
+    text-decoration: none;
+  }
 }
 
-#logo:hover {
+.header-list {
   color: #fff;
-  text-decoration: none;
+  font-weight: bold;
 }
 
+.dropdown-header {
+  background-color: rgba(200,200,200,0.5);
+ 
+  color: black;
+  font-style: bold;
+}
 
 
 /* デバッグウインドウ */
