@@ -14,7 +14,16 @@
             <tr>
               <td>
                 <%= link_to user.name, user_path(user) %>
-                
+                <% if user.id == current_user.id %>
+                  <span class="label label-primary label-user-devision">管理者</span>
+                <% else %>
+                  <span class="label label-success label-user-devision">一般</span>
+                <% end %>
+              </td>
+              <td>
+                <% unless user.id == current_user.id %>
+                <%= link_to "削除", "#", class: "btn btn-danger btn-sm pull-right" %>
+                <% end %>
               </td>
             </tr>
           <% end %>
