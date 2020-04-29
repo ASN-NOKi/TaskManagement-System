@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   
   resources :users, except: [:new] do
-    member do
-      get 'tasks_index'
-    end
-    resources :tasks, except: [:index]
+    # member do
+    #   get 'tasks_index'
+    # end
+    resources :tasks    # , except: [:index]
   end
+  
+  
+  
+  
 end

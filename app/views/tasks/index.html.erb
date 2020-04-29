@@ -21,8 +21,8 @@
             </td>
             <td><%= task.created_at %></td>
             <td>
-              <%= link_to "編集", "#", class: "btn btn-success" %>
-              <%= link_to "削除", "#", class: "btn btn-danger" %>
+              <%= link_to "編集", edit_user_task_path(task.user_id, task.id), class: "btn btn-success" %>
+              <%= link_to "削除", user_task_path(task.user_id, task.id), method: :delete, data: {confirm: "「#{task.content}」を削除します。よろしいですか？"}, class: "btn btn-danger" %>
             </td>
           </tr>
         <% end %>

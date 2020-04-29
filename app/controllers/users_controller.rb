@@ -46,10 +46,6 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
-  def tasks_index
-    @user = User.find(params[:id])  # current_user
-    @tasks = @user.tasks
-  end
   
   private
   
