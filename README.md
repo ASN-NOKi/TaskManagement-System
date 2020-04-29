@@ -42,3 +42,8 @@ $ rails s
 
 * **email** : sample@email.com
 * **password** : password
+
+```
+URL2: https://qiita.com/satoken0417/items/df4098a122d05d69a3e6
+URL3: https://chopesu.com/programing/rails-texturl-link/
+```

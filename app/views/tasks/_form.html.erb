@@ -12,7 +12,7 @@
   <%= f.submit "#{yield(:btn_text)}", class: "btn #{yield(:btn_size)} btn-primary btn-form" %>
   
   <% if @path.is('tasks#edit') %>
-    <%= link_to "キャンセル", "#", class: "btn btn-default btn-form" %>
+    <%= link_to "キャンセル", user_tasks_path, class: "btn btn-default btn-form" %>
   <% end %>
 
 <% end %>
