@@ -6,9 +6,9 @@ User.create!( name: "管理者",
               password_confirmation: "password",
               admin: true)
               
-100.times do |i| 
+98.times do |i| 
   name = Faker::Name.name
-  email= "sample-#{i}@email.com"
+  email= "sample-#{i+1}@email.com"
   password = "password"
   User.create!( name: name,
                 email: email,
@@ -29,10 +29,10 @@ Task.create!( content: "参考URL",
               URL4: https://pikawaka.com/rails/form_with",
               user_id: 1)
               
-20.times do |task|
+50.times do |task|
   content = "content-#{task + 1}"
   description = "#{task + 1}-abcde"
-  user_id = 1
+  user_id = task%3 + 1
   Task.create!(content: content,
                description: description,
                user_id: user_id)

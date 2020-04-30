@@ -12,13 +12,10 @@ ja:
         password_confirmation: パスワード再入力
         created_at: 作成日
         updated_at: 更新日
+        admin: 管理者権限
       task:
         id: ID
         content: 名称
         description: 詳細
         created_at: 作成日
         updated_at: 更新日
-  errors:
-
-
-    

@@ -14,6 +14,7 @@ gem 'turbolinks',   '~> 5'
 gem 'jbuilder',     '~> 2.5'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate'
+gem 'i18n_generators'
 
 group :development, :test do
   gem 'sqlite3'
