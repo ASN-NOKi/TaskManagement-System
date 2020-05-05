@@ -1,22 +1,20 @@
 class TasksController < ApplicationController
-  # before_action :set_user, only: [:new, :show, :edit]
+  before_action :set_tasks_user
+  before_action :logged_in_user
   before_action :request_path, only: [:new, :edit, :create, :update]
+  before_action :correct_user
   
   
   def index
-    @user = current_user # User.find(params[:id])  # current_user
     @tasks = @user.tasks.order(id: :desc)
   end
   
   def new
-    # @user = current_user
-    @user = User.find(params[:user_id])
     @task = @user.tasks.new
   end
   
   def create
-    @user = User.find(params[:user_id])
-    @task = Task.new(task_params)
+    @task = @user.tasks.new(task_params)
     @task.user_id = @user.id
     if @task.save
       flash[:success] = "タスクを新規作成しました。"
@@ -29,20 +27,14 @@ class TasksController < ApplicationController
 
   
   def show
-    # @task = Task.find(params[:id])
-    @user = User.find(params[:user_id])
-    # # @tasks = @user.tasks(user_id: params[:user_id])
     @task = Task.find(params[:id])
-   
   end    
 
   def edit
-    @user = User.find(params[:user_id])
     @task = Task.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:user_id])
     @task = Task.find(params[:id])
     if @task.update_attributes(task_params)
       flash[:success] = "タスクを更新しました。"
@@ -53,8 +45,6 @@ class TasksController < ApplicationController
   end
   
   def destroy
-    # @user = User.find(params[:user_id])
-    # @task = @user.tasks.find(params[:id])
     @task = Task.find(params[:id])
     @task.destroy
     flash[:success] = "タスクを削除しました。"
@@ -62,12 +52,18 @@ class TasksController < ApplicationController
   end
 
 
-
-
   private
   
   def task_params
     params.require(:task).permit(:content, :description)
+  end
+  
+  def set_tasks_user
+    @user = User.find(params[:user_id])
+  end
+  
+  def del_msg(task)
+    @del_msg = "「#{task.content}」を削除します。よろしいですか？"
   end
   
 end

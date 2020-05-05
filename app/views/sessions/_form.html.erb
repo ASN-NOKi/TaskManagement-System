@@ -1,6 +1,6 @@
 <!-- ログインフォーム パーシャル -->
 <% provide(:btn_text, logged_in? ? "ログイン状態です" : "ログイン") %>
-
+<% provide(:asano, logged_in? ? "disabled" : "") %>
 
 <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
 
@@ -16,6 +16,7 @@
       <span>ログイン情報を記憶する</span>
     <% end %>
   <% end %>
-  
+
+  <%#= f.submit "#{yield(:btn_text)}", class: "btn btn-primary btn-block btn-login #{yield(:asano)}" %>
   <%= f.submit "#{yield(:btn_text)}", disabled: logged_in?, class: "btn btn-primary btn-block btn-login" %>
 <% end %>

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :already_login, only: [:new, :create]
+  
   
   def new
   end
@@ -21,4 +23,5 @@ class SessionsController < ApplicationController
     flash[:success] = 'ログアウトしました。'
     redirect_to root_url
   end
+  
 end
